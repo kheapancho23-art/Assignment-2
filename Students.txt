@@ -1,0 +1,28 @@
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string filePath = "students.txt";
+
+            // =========================
+            // TASK 1 — CREATE & WRITE FILE
+            // =========================
+            List<Student> students = new List<Student>()
+            {
+                new Student(20261,"John","BSIT",90),
+                new Student(20262,"Maria","BSTCM",92),
+                new Student(20263,"Paul","BSIT",77),
+                new Student(20264,"Ana","EMT",88),
+                new Student(20265,"Mark","BSIT",89)
+            };
+
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (var s in students)
+                {
+                    writer.WriteLine($"{s.studentID},{s.name},{s.course},{s.grade}");
+                }
+            }
+
+            Console.WriteLine("File created and data written successfully.\n")
